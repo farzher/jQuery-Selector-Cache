@@ -1,0 +1,39 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+<script src="../src/jquery.sc.js"></script>
+
+<script>
+$(function() {
+	//Add a bunch of crap to the document
+	for(var i=0; i<1000; i++) $('body').append('<strong class="a">strong</strong>');
+	for(var i=0; i<1000; i++) $('body').append('<small class="b">small</small>');
+	for(var i=0; i<1000; i++) $('body').append('<div class="c">div</div>');
+	for(var i=0; i<1000; i++) $('body').append('<p class="d">p</p>');
+	
+	//Run some benchmarks
+	benchmark('No cache', function() {
+		for(var i=0; i<1000; i++) {
+			$('div');
+		}
+	});
+	benchmark('Selector Cache plugin', function() {
+		for(var i=0; i<1000; i++) {
+			$.sc('div');
+		}
+	});
+	benchmark('Storing results in variables', function() {
+		var $div = $('div');
+		for(var i=0; i<1000; i++) {
+			$div;
+		}
+	});
+	
+	function benchmark(label, func) {
+		var start = (new Date).getTime();
+		func();
+		var duration = (new Date).getTime() - start;
+		var message = label+': '+duration+'ms';
+		console.log(message);
+		$.sc('body').prepend('<p>'+message+'</p>');
+	}
+});
+</script>
