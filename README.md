@@ -2,7 +2,7 @@
 
 <h2>Installation</h2>
 <pre>
-Include the jquery.sc.js file.
+Include the /src/jquery.sc.js file.
 </pre>
 
 
