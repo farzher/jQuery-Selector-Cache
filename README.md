@@ -1,50 +1,37 @@
-<p>Cache your selectors, without messy code.</p>
+jQuery Selector Cache
+=============
 
-<h2>Installation</h2>
-<pre>
-Include the /src/jquery.sc.js file.
-</pre>
+Cache your selectors, without messy code.
 
+Installation
+-------
 
+1. Include the /src/jquery.sc.js file.
 
+Usage
+------------
 
+### Overview
+Instead of `$('div');` use `$.sc('div');`
 
-<h2>Usage</h2>
-<pre>
-Instead of $('div'); use $.sc('div');
-</pre>
+### Get
+`$.sc('div');`
 
-<h3>Get</h3>
-<pre>
-$.sc('div');
-//The next time you call $.sc('div'); it will be fetched from the cache.
-</pre>
+The next time you call $.sc('div'); it will be fetched from the cache.
 
-<h3>Clear</h3>
-<pre>
-$.sc('div', 'clear');
-//Invalidates the cache.
-//The next time you call $.sc('div'); It will return fresh results.
-</pre>
+### Clear
+`$.sc('div', 'clear');`
 
-<h3>Fresh</h3>
-<pre>
-$.sc('div', 'fresh');
-//Shortcut for doing $.sc('div', 'clear'); $.sc('div');
-</pre>
+Invalidates the cache. The next time you call `$.sc('div');` It will return fresh results.
 
+### Fresh
+`$.sc('div', 'fresh');`
 
+Shortcut for doing `$.sc('div', 'clear');` `$.sc('div');`
 
+Benchmarks
+------------
 
-
-
-
-
-
-
-<h2>Benchmarks</h2>
-<pre>
-No cache: 444ms
-Selector Cache plugin: 3ms
-Storing results in variables: 2ms 
-</pre>
+	No cache: 444ms
+	Selector Cache plugin: 3ms
+	Storing results in variables: 2ms
