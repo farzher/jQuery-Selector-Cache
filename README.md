@@ -12,22 +12,22 @@ Usage
 ------------
 
 ### Overview
-Instead of `$('div');` use `$.sc('div');`
+Instead of `$('div')` use `$.sc('div')`
 
 ### Get
-`$.sc('div');`
+`$.sc('div')`
 
-The next time you call $.sc('div'); it will be fetched from the cache.
+The next time you call `$.sc('div')` it will be fetched from the cache.
 
 ### Clear
-`$.sc('div', 'clear');`
+`$.sc('div', 'clear')`
 
-Invalidates the cache. The next time you call `$.sc('div');` It will return fresh results.
+Invalidates the cache. The next time you call `$.sc('div')` It will return fresh results.
 
 ### Fresh
-`$.sc('div', 'fresh');`
+`$.sc('div', 'fresh')`
 
-Shortcut for doing `$.sc('div', 'clear');` `$.sc('div');`
+Shortcut for doing `$.sc('div', 'clear')` `$.sc('div')`
 
 Benchmarks
 ------------
