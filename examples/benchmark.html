@@ -9,6 +9,15 @@ $(function() {
 	for(var i=0; i<1000; i++) $('body').append('<div class="c">div</div>');
 	for(var i=0; i<1000; i++) $('body').append('<p class="d">p</p>');
 	
+	function benchmark(label, func) {
+		var start = (new Date).getTime();
+		func();
+		var duration = (new Date).getTime() - start;
+		var message = label+': '+duration+'ms';
+		console.log(message);
+		$.sc('body').prepend('<p>'+message+'</p>');
+	}
+
 	//Run some benchmarks
 	benchmark('No cache', function() {
 		for(var i=0; i<1000; i++) {
@@ -26,14 +35,5 @@ $(function() {
 			$div;
 		}
 	});
-	
-	function benchmark(label, func) {
-		var start = (new Date).getTime();
-		func();
-		var duration = (new Date).getTime() - start;
-		var message = label+': '+duration+'ms';
-		console.log(message);
-		$.sc('body').prepend('<p>'+message+'</p>');
-	}
 });
 </script>

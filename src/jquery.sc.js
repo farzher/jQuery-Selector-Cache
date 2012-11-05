@@ -5,28 +5,28 @@
  */
 (function ($) {
 	$.sc = function(selector, action) {
-		//if this is the first time being called...
-		//set the cache to empty object
-		if(this.initialized === undefined) {
-			this.initialized = true;
-			
-			this.c = {};
+		var that = this;
+		//Set the cache to empty object right away
+		if(that.init === undefined) {
+			that.init = true;
+			that.c = {};
 		}
+
 		//make 'get' the default action
 		if(action === undefined) {
 			action = 'get';
 		}
-		var that = this;
+		
 		
 		//entry point
 		switch(action) {
-			case 'get': return selector_get(selector); break;
-			case 'clear': return selector_clear(selector); break;
-			case 'fresh': return selector_fresh(selector); break;
-			default: alert('Invalid action passed to sc.');
+			case 'get': return selector_get(); break;
+			case 'clear': return selector_clear(); break;
+			case 'fresh': return selector_fresh(); break;
+			default: throw new Error('Invalid action passed to jQuery Selector Cache');
 		}
-		
-		function selector_get(selector) {
+
+		function selector_get() {
 			//check if the selector is in the cache
 			if(that.c[selector] !== undefined) {
 				return that.c[selector];
@@ -34,18 +34,17 @@
 				return that.c[selector] = $(selector);
 			}
 		}
-		function selector_clear(selector) {
-			//providing * selector clears everything
-			if(selector === '*') {
-				that.c = {};
-			} else {
-				delete that.c[selector];
-			}
-			return;
+		function selector_clear() {
+			var temp = that.c[selector];
+			delete that.c[selector];
+			return temp;
 		}
-		function selector_fresh(selector) {
-			selector_clear(selector);
-			return selector_get(selector);
+		function selector_fresh() {
+			selector_clear();
+			return selector_get();
 		}
 	}
+
+	//Set the cache to empty object right away
+	$.sc.c = {};
 }(jQuery));
