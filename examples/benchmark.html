@@ -15,7 +15,7 @@ $(function() {
 		var duration = (new Date).getTime() - start;
 		var message = label+': '+duration+'ms';
 		console.log(message);
-		$.sc('body').prepend('<p>'+message+'</p>');
+		$$('body').prepend('<p>'+message+'</p>');
 	}
 
 	//Run some benchmarks
@@ -26,7 +26,7 @@ $(function() {
 	});
 	benchmark('Selector Cache plugin', function() {
 		for(var i=0; i<1000; i++) {
-			$.sc('div');
+			$$('div');
 		}
 	});
 	benchmark('Storing results in variables', function() {

@@ -12,18 +12,18 @@ Cache your selectors, without messy code.
 	$('div')
 
 	//use
-	$.sc('div')
+	$$('div')
 
-The next time you call `$.sc('div')` it will be fetched from the cache.
+The next time you call `$$('div')` it will be fetched from the cache.
 
 ##Options
 
- - `$.sc('div')`
-	The next time you call `$.sc('div')` it will be fetched from the cache.
- - `$.sc('div', 'clear')`
- 	Invalidates the cache. The next time you call `$.sc('div')` It will return fresh results.
- - `$.sc('div', 'fresh')`
- 	Shortcut for doing `$.sc('div', 'clear')` `$.sc('div')`
+ - `$$('div')`
+	The next time you call `$$('div')` it will be fetched from the cache.
+ - `$$('div', 'clear')`
+ 	Invalidates the cache. The next time you call `$$('div')` It will return fresh results.
+ - `$$('div', 'fresh')`
+ 	Shortcut for doing `$$('div', 'clear')` `$$('div')`
 
 ##Benchmarks
 

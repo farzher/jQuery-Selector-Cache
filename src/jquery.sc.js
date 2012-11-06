@@ -1,10 +1,10 @@
 /*
- * Selector Cache sc
+ * Selector Cache $$
  * Cache your selectors, without messy code.
  * @author Stephen Kamenar
  */
 (function ($) {
-	$.sc = function(selector, action) {
+	$$ = function(selector, action) {
 		var that = this;
 		//Set the cache to empty object right away
 		if(that.init === undefined) {
@@ -44,7 +44,4 @@
 			return selector_get();
 		}
 	}
-
-	//Set the cache to empty object right away
-	$.sc.c = {};
 }(jQuery));
