@@ -3,12 +3,30 @@
 
 <script>
 $(function() {
-	//Add a bunch of crap to the document
+	// Add a bunch of crap to the document
 	for(var i=0; i<1000; i++) $('body').append('<strong class="a">strong</strong>');
 	for(var i=0; i<1000; i++) $('body').append('<small class="b">small</small>');
 	for(var i=0; i<1000; i++) $('body').append('<div class="c">div</div>');
 	for(var i=0; i<1000; i++) $('body').append('<p class="d">p</p>');
-	
+
+	// Run some benchmarks
+	benchmark('No cache', function() {
+		for(var i=0; i<1000; i++) {
+			$('div').css('background', 'red');
+		}
+	});
+	benchmark('Selector Cache plugin', function() {
+		for(var i=0; i<1000; i++) {
+			$$('div').css('background', 'red');
+		}
+	});
+	benchmark('Caching with no plugin', function() {
+		var $div = $('div');
+		for(var i=0; i<1000; i++) {
+			$div.css('background', 'red');
+		}
+	});
+
 	function benchmark(label, func) {
 		var start = (new Date).getTime();
 		func();
@@ -17,23 +35,5 @@ $(function() {
 		console.log(message);
 		$$('body').prepend('<p>'+message+'</p>');
 	}
-
-	//Run some benchmarks
-	benchmark('No cache', function() {
-		for(var i=0; i<1000; i++) {
-			$('div');
-		}
-	});
-	benchmark('Selector Cache plugin', function() {
-		for(var i=0; i<1000; i++) {
-			$$('div');
-		}
-	});
-	benchmark('Storing results in variables', function() {
-		var $div = $('div');
-		for(var i=0; i<1000; i++) {
-			$div;
-		}
-	});
 });
 </script>

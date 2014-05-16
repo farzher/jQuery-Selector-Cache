@@ -27,6 +27,6 @@ The next time you call `$$('div')` it will be fetched from the cache.
 
 ##Benchmarks
 
-	No cache: 444ms
-	Selector Cache plugin: 3ms
-	Storing results in variables: 2ms
+	No cache: 110ms
+	Selector Cache plugin: 0ms
+	Caching with no plugin: 0ms

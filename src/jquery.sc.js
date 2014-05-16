@@ -3,22 +3,16 @@
  * Cache your selectors, without messy code.
  * @author Stephen Kamenar
  */
-(function ($) {
-	$$ = function(selector, action) {
-		var that = this;
-		//Set the cache to empty object right away
-		if(that.init === undefined) {
-			that.init = true;
-			that.c = {};
-		}
+!(function ($) {
+	var cache = {};
 
-		//make 'get' the default action
+	$$ = function(selector, action) {
+		// Make 'get' the default action
 		if(action === undefined) {
 			action = 'get';
 		}
-		
-		
-		//entry point
+
+		// Entry point
 		switch(action) {
 			case 'get': return selector_get(); break;
 			case 'clear': return selector_clear(); break;
@@ -27,18 +21,20 @@
 		}
 
 		function selector_get() {
-			//check if the selector is in the cache
-			if(that.c[selector] !== undefined) {
-				return that.c[selector];
+			// Check if the selector is in the cache
+			if(cache[selector] !== undefined) {
+				return cache[selector];
 			} else {
-				return that.c[selector] = $(selector);
+				return cache[selector] = $(selector);
 			}
 		}
+
 		function selector_clear() {
-			var temp = that.c[selector];
-			delete that.c[selector];
+			var temp = cache[selector];
+			delete cache[selector];
 			return temp;
 		}
+
 		function selector_fresh() {
 			selector_clear();
 			return selector_get();
