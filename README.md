@@ -18,7 +18,11 @@ Cache your selectors, without messy code.
 
 ##Basic Usage
 
-Instead of `$('div')` use `$$('div')`
+    // Instead of
+    $('div')
+
+    // Use
+    $$('div')
 
 The next time you call `$$('div')` it will be fetched from the cache.
 
