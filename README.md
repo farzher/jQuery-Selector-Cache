@@ -37,8 +37,6 @@ The next time you call `$$('div')` it will be fetched from the cache.
  - `$$.clear('div')` Invalidates the cache. The next time you call `$$('div')` It will return fresh results.
  - `$$.fresh('div')` Shortcut for doing `$$.clear('div')` `$$('div')`
 
- In all cases, context is an optional 2nd argument, just like in jQuery.
-
 
 
 
