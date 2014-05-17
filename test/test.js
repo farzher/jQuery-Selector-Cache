@@ -14,7 +14,7 @@ $(function() {
 
 	test('clear', function() {
 		deepEqual($$('#testContext div').length, 0, 'There should still be 0 divs in cache');
-		deepEqual($$.clear('#testContext div').length, 0, 'The return value from clear should be what was in the cache');
+		$$.clear('#testContext div');
 		deepEqual($$('#testContext div').length, 1, 'After clearing the cache, we should have found the new div.');
 	});
 
@@ -23,9 +23,5 @@ $(function() {
 		$$('#testContext div').remove();
 		deepEqual($$('#testContext div').length, 1, 'div has been removed, but it should still be in cache');
 		deepEqual($$.fresh('#testContext div').length, 0, 'Doing a fresh call should find nothing');
-	});
-
-	test('context', function() {
-		deepEqual($$('div', '#testContext').length, 0, 'Nothing in the test context');
 	});
 });
