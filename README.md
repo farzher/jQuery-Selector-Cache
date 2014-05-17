@@ -53,7 +53,7 @@ jQuery itself does no caching. The DOM is slow. You shouldn't look for something
 
 ##Benchmarks http://jsperf.com/selector-cache
 
-68% Faster than jQuery with no cache.
+50% Faster than jQuery with no cache.
 
 
 
@@ -62,11 +62,3 @@ jQuery itself does no caching. The DOM is slow. You shouldn't look for something
 ##Alternatives
 
 I'm not sure why you wouldn't use [jQache](https://github.com/danwit/jQache) instead. It's more popular, and does more. Although, if this works for you and you're hardcore about performance, my plugin is slightly faster (because it's more simple).
-
-
-
-
-
-##Gotchas
-
-Arguments must be strings, if you try something like this `$$('div', $$('#someContext'))`. The context object will be casted `toString`, and will probably conflict with different contexts. But you're good to go if you're just using strings! `$$('div', '#someContext')`
