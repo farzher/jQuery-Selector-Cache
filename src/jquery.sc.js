@@ -6,38 +6,29 @@
 !(function ($) {
 	var cache = {};
 
-	$$ = function(selector, action) {
-		// Make 'get' the default action
-		if(action === undefined) {
-			action = 'get';
-		}
+	function getContextCache(context) {
+		if(cache[context] === undefined) cache[context] = {};
+		return cache[context];
+	}
 
-		// Entry point
-		switch(action) {
-			case 'get': return selector_get(); break;
-			case 'clear': return selector_clear(); break;
-			case 'fresh': return selector_fresh(); break;
-			default: throw new Error('Invalid action passed to jQuery Selector Cache');
+	$$ = function(selector, context) {
+		var c = getContextCache(context);
+		if(c[selector] !== undefined) {
+			return c[selector];
+		} else {
+			return c[selector] = $(selector, context);
 		}
+	}
 
-		function selector_get() {
-			// Check if the selector is in the cache
-			if(cache[selector] !== undefined) {
-				return cache[selector];
-			} else {
-				return cache[selector] = $(selector);
-			}
-		}
+	$$.clear = function(selector, context) {
+		var c = getContextCache(context);
+		var temp = c[selector];
+		delete c[selector];
+		return temp;
+	}
 
-		function selector_clear() {
-			var temp = cache[selector];
-			delete cache[selector];
-			return temp;
-		}
-
-		function selector_fresh() {
-			selector_clear();
-			return selector_get();
-		}
+	$$.fresh = function(selector, context) {
+		$$.clear(selector, context);
+		return $$(selector, context);
 	}
 }(jQuery));
