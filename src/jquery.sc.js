@@ -4,31 +4,23 @@
  * @author Stephen Kamenar
  */
 !(function ($) {
-	var cache = {};
+	var c = {};
 
-	function getContextCache(context) {
-		if(cache[context] === undefined) cache[context] = {};
-		return cache[context];
-	}
-
-	$$ = function(selector, context) {
-		var c = getContextCache(context);
-		if(c[selector] !== undefined) {
-			return c[selector];
+	$$ = function(selector) {
+		var temp = c[selector];
+		if(temp !== undefined) {
+			return temp;
 		} else {
-			return c[selector] = $(selector, context);
+			return c[selector] = $(selector);
 		}
 	}
 
-	$$.clear = function(selector, context) {
-		var c = getContextCache(context);
-		var temp = c[selector];
-		delete c[selector];
-		return temp;
+	$$.clear = function(selector) {
+		c[selector] = undefined;
 	}
 
-	$$.fresh = function(selector, context) {
-		$$.clear(selector, context);
-		return $$(selector, context);
+	$$.fresh = function(selector) {
+		c[selector] = undefined;
+		return $$(selector);
 	}
 }(jQuery));
