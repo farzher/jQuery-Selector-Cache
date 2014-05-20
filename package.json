@@ -1,0 +1,26 @@
+{
+  "name": "jQuery-Selector-Cache",
+  "version": "0.0.0",
+  "description": "Cache your selectors, without messy code.",
+  "main": "jquery.$$.min.js",
+  "directories": {
+    "example": "examples",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "uglifyjs src/jquery.$$.js -m -c -o jquery.$$.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://farzher@github.com/farzher/jQuery-Selector-Cache.git"
+  },
+  "author": "Stephen Kamenar",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/farzher/jQuery-Selector-Cache/issues"
+  },
+  "devDependencies": {
+    "uglify-js": "~2.4.13"
+  }
+}

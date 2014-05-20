@@ -3,7 +3,7 @@
  * Cache your selectors, without messy code.
  * @author Stephen Kamenar
  */
-!(function ($) {
+(function ($, undefined) {
 	var c = {};
 
 	$$ = function(selector) {

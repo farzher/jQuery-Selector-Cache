@@ -1,4 +1,4 @@
-#[jQuery Selector Cache](https://raw.github.com/farzher/jQuery-Selector-Cache/master/src/jquery.sc.js)
+#[jQuery Selector Cache](https://raw.github.com/farzher/jQuery-Selector-Cache/master/jquery.$$.min.js)
 
 Cache your selectors, without messy code.
 
@@ -9,7 +9,7 @@ Cache your selectors, without messy code.
 
 ##Installation
 
-1. Include the [/src/jquery.sc.js](https://raw.github.com/farzher/jQuery-Selector-Cache/master/src/jquery.sc.js) file after your copy of jQuery.
+1. Include the [/jquery.$$.min.js](https://raw.github.com/farzher/jQuery-Selector-Cache/master/jquery.$$.min.js) file after your copy of jQuery.
 
 
 
@@ -59,4 +59,4 @@ Over 100% faster than jQuery with no cache.
 
 ##Alternatives
 
-I'm not sure why you wouldn't use [jQache](https://github.com/danwit/jQache) instead. It's more popular, and does more. Although, if this works for you and you're hardcore about performance, my plugin is slightly faster (because it's more simple).
+I'm not sure why you wouldn't use [jQache](https://github.com/danwit/jQache) instead. It's more popular, and does more. Although, if this works for you and you're hardcore about performance, my plugin is less heavy, only ~150 bytes, (because it's more simple).
