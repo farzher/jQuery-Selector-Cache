@@ -49,7 +49,7 @@ jQuery itself does no caching. The DOM is slow. You shouldn't look for something
 
 
 
-##Benchmarks http://jsperf.com/selector-cache
+##Benchmarks http://jsperf.com/selector-cache/2
 
 Over 100% faster than jQuery with no cache.
 

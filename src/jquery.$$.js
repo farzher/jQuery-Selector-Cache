@@ -4,23 +4,23 @@
  * @author Stephen Kamenar
  */
 (function ($, undefined) {
-	var c = {};
+	var cache = {};
 
 	$$ = function(selector) {
-		var temp = c[selector];
+		var temp = cache[selector];
 		if(temp !== undefined) {
 			return temp;
 		} else {
-			return c[selector] = $(selector);
+			return cache[selector] = $(selector);
 		}
 	}
 
 	$$.clear = function(selector) {
-		c[selector] = undefined;
+		cache[selector] = undefined;
 	}
 
 	$$.fresh = function(selector) {
-		c[selector] = undefined;
+		cache[selector] = undefined;
 		return $$(selector);
 	}
 }(jQuery));
