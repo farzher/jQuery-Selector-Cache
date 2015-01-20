@@ -11,7 +11,7 @@ Cache your selectors, without messy code.
 
 This library is so tiny, just copy paste its whole source after your copy of jQuery (its faster than the browser downloading another file).
 
-    <script>function(n,r){var $={};$$=function(u){var t=$[u];return t!==r?t:$[u]=n(u)},$$.clear=function(n){$[n]=r},$$.fresh=function(n){return $[n]=r,$$(n)}}(jQuery)</script>
+    <script>!function(n,r){var $={};$$=function(u){var t=$[u];return t!==r?t:$[u]=n(u)},$$.clear=function(n){$[n]=r},$$.fresh=function(n){return $[n]=r,$$(n)}}(jQuery)</script>
 
 
 
