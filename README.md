@@ -9,7 +9,9 @@ Cache your selectors, without messy code.
 
 ##Installation
 
-1. Include the [/jquery.$$.min.js](https://raw.github.com/farzher/jQuery-Selector-Cache/master/jquery.$$.min.js) file after your copy of jQuery.
+This library is so tiny, just copy paste its whole source after your copy of jQuery (its faster than the browser downloading another file).
+
+    <script>function(n,r){var $={};$$=function(u){var t=$[u];return t!==r?t:$[u]=n(u)},$$.clear=function(n){$[n]=r},$$.fresh=function(n){return $[n]=r,$$(n)}}(jQuery)</script>
 
 
 
