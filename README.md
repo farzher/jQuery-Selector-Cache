@@ -62,4 +62,4 @@ Over 100% faster than jQuery with no cache.
 
 ##Alternatives
 
-I'm not sure why you wouldn't use [jQache](https://github.com/danwit/jQache) instead. It's more popular, and does more. Although, if this works for you and you're hardcore about performance, my plugin is less heavy, only ~150 bytes, (because it's more simple).
+I'm not sure why you wouldn't use [jQache](https://github.com/danwit/jQache) instead. It's more popular, and does more. Although, if this works for you and you're hardcore about performance, this plugin is less heavy, only ~150 bytes, (because it's more simple).
