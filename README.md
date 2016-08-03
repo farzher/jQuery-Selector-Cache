@@ -12,7 +12,7 @@ Cache your selectors, without messy code.
 This library is so tiny, just copy paste its whole source after your copy of jQuery (its faster than the browser downloading another file).
 
     <!-- $$ https://github.com/farzher/jQuery-Selector-Cache -->
-    <script>function($,n){var r,e={},f={};$$=function(i,t){if(t){var u=$$(t),c=f[u];return c===n&&(c=f[u]={}),r=c[i],r!==n?r:c[i]=$(i,u)}return r=e[i],r!==n?r:e[i]=$(i)},$$.clear=function($,r){if(r)if($){var i=f[$$(r)];i&&(i[$]=n)}else f[$$(r)]=n;else $?e[$]=n:(e={},f={})},$$.fresh=function($,n){return $$.clear($,n),$$($,n)},$.fn.$$find=function($){return $$($,this)}}(jQuery)</script>
+    <script>!function($,n){var r,e={},f={};$$=function(i,t){if(t){var u=$$(t),c=f[u];return c===n&&(c=f[u]={}),r=c[i],r!==n?r:c[i]=$(i,u)}return r=e[i],r!==n?r:e[i]=$(i)},$$.clear=function($,r){if(r)if($){var i=f[$$(r)];i&&(i[$]=n)}else f[$$(r)]=n;else $?e[$]=n:(e={},f={})},$$.fresh=function($,n){return $$.clear($,n),$$($,n)},$.fn.$$find=function($){return $$($,this)}}(jQuery)</script>
 
 
 
@@ -40,7 +40,7 @@ The next time you call `$$('div')` it will be instantly fetched from the cache.
  - `$$.clear('div')` Invalidates the cache. The next time you call `$$('div')` It will return fresh results.
  - `$$.fresh('div')` Shortcut for `$$.clear('div')` `$$('div')`
 
-####Advanced usage
+###Advanced usage
  - `$$('div', '#context')` Find within a context
  - `$$('#context').$$find('div')` Find within a context (alternative syntax)
  - `$$.clear('div', '#context')` Invalidates query on the context
