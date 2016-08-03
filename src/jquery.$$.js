@@ -36,9 +36,9 @@
   $$.clear = function(selector, context) {
     if(context) {
       if(selector) {
-        var contextCache = cacheByContext[$$(context)]
-        if(contextCache) {
-          contextCache[selector] = undefined
+        tmp = cacheByContext[$$(context)]
+        if(tmp) {
+          tmp[selector] = undefined
         }
       } else {
         cacheByContext[$$(context)] = undefined
@@ -61,4 +61,4 @@
   $.fn.$$find = function(selector) {
     return $$(selector, this)
   }
-}(jQuery))
+})(jQuery)
