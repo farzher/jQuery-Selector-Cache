@@ -1,6 +1,6 @@
 {
   "name": "jQuery-Selector-Cache",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Cache your selectors, without messy code.",
   "main": "jquery.$$.min.js",
   "directories": {
