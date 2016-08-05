@@ -35,7 +35,7 @@
     return cache[selector] = $(selector)
   }
 
-  $$.clear = function(selector, context) {
+  $$clear = function(selector, context) {
     if(context) {
       if(tmp=context.selector) context = tmp
 
@@ -54,18 +54,18 @@
     }
   }
 
-  $$.fresh = function(selector, context) {
-    $$.clear(selector, context)
+  $$fresh = function(selector, context) {
+    $$clear(selector, context)
     return $$(selector, context)
   }
 
-  $.fn.$$find = function(selector) {
+  $.fn.$$ = function(selector) {
     return $$(selector, this)
   }
   $.fn.$$clear = function(selector) {
-    $$.clear(selector, this)
+    $$clear(selector, this)
   }
   $.fn.$$fresh = function(selector) {
-    return $$.fresh(selector, this)
+    return $$fresh(selector, this)
   }
 })(jQuery)

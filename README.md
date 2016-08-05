@@ -13,7 +13,7 @@ This library is so tiny, just copy paste its whole source after your copy of jQu
 
 ```html
   <!-- $$ https://github.com/farzher/jQuery-Selector-Cache -->
-  <script>!function($,n){var r,e,t={},f={};$$=function(c,u){return u?((r=u.selector)&&(u=r),e=f[u],e===n&&(e=f[u]={}),r=e[c],r!==n?r:e[c]=$(c,$$(u))):(r=t[c],r!==n?r:t[c]=$(c))},$$.clear=function($,e){e?((r=e.selector)&&(e=r),$&&(r=f[e])&&(r[$]=n),f[e]=n):$?(t[$]=n,f[$]=n):(t={},f={})},$$.fresh=function($,n){return $$.clear($,n),$$($,n)},$.fn.$$find=function($){return $$($,this)},$.fn.$$clear=function($){$$.clear($,this)},$.fn.$$fresh=function($){return $$.fresh($,this)}}(jQuery)</script>
+  <script>!function($,n){var r,e,t={},c={};$$=function(f,u){return u?((r=u.selector)&&(u=r),e=c[u],e===n&&(e=c[u]={}),r=e[f],r!==n?r:e[f]=$(f,$$(u))):(r=t[f],r!==n?r:t[f]=$(f))},$$clear=function($,e){e?((r=e.selector)&&(e=r),$&&(r=c[e])&&(r[$]=n),c[e]=n):$?(t[$]=n,c[$]=n):(t={},c={})},$$fresh=function($,n){return $$clear($,n),$$($,n)},$.fn.$$=function($){return $$($,this)},$.fn.$$clear=function($){$$clear($,this)},$.fn.$$fresh=function($){return $$fresh($,this)}}(jQuery)</script>
 ```
 
 
@@ -63,16 +63,16 @@ Over 100% faster than jQuery with no cache.
 ##Documentation
 
  - `$$('div')` The next time you call `$$('div')` it will be fetched from the cache.
- - `$$.clear('div')` Invalidates the cache. The next time you call `$$('div')` It will return fresh results.
- - `$$.fresh('div')` Shortcut for `$$.clear('div')` `$$('div')`
+ - `$$clear('div')` Invalidates the cache. The next time you call `$$('div')` It will return fresh results.
+ - `$$fresh('div')` Shortcut for `$$clear('div')` `$$('div')`
 
 ###Advanced usage
  - `$$('div', '#context')` Find within a context
- - `$$.clear('div', '#context')` Invalidates query on the context
- - `$$.clear('#context')` Invalidates the cache, and all queries on the context
- - `$$.clear()` Invalidates all of the cache
- - `$$.fresh('div', '#context')` Shortcut for `$$.clear('div', '#context')` `$$('div', '#context')`
- - OOP syntax `$$('p').$$find('a')` `$$('p').$$clear('a')` `$$('p').$$fresh('a')`
+ - `$$clear('div', '#context')` Invalidates query on the context
+ - `$$clear('#context')` Invalidates the cache, and all queries on the context
+ - `$$clear()` Invalidates all of the cache
+ - `$$fresh('div', '#context')` Shortcut for `$$clear('div', '#context')` `$$('div', '#context')`
+ - OOP syntax `$$('p').$$('a')` `$$('p').$$clear('a')` `$$('p').$$fresh('a')`
 
 
 
