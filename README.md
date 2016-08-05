@@ -12,7 +12,7 @@ Cache your selectors, without messy code.
 This library is so tiny, just copy paste its whole source after your copy of jQuery (its faster than the browser downloading another file).
 
     <!-- $$ https://github.com/farzher/jQuery-Selector-Cache -->
-    <script>!function($,n){var r,e,t={},c={};$$=function(u,f){return f?((r=f.selector)&&(f=r),e=c[f],e===n&&(e=c[f]={}),r=e[u],r!==n?r:e[u]=$(u,$$(f))):(r=t[u],r!==n?r:t[u]=$(u))},$$.clear=function($,e){e?((r=e.selector)&&(e=r),$?(r=c[e],r&&(r[$]=n)):c[e]=n):$?(t[$]=n,c[$]=n):(t={},c={})},$$.fresh=function($,n){return $$.clear($,n),$$($,n)},$.fn.$$find=function($){return $$($,this)}}(jQuery)</script>
+    <script>!function($,n){var r,e,t={},f={};$$=function(c,u){return u?((r=u.selector)&&(u=r),e=f[u],e===n&&(e=f[u]={}),r=e[c],r!==n?r:e[c]=$(c,$$(u))):(r=t[c],r!==n?r:t[c]=$(c))},$$.clear=function($,e){e?((r=e.selector)&&(e=r),$&&(r=f[e])&&(r[$]=n),f[e]=n):$?(t[$]=n,f[$]=n):(t={},f={})},$$.fresh=function($,n){return $$.clear($,n),$$($,n)},$.fn.$$find=function($){return $$($,this)},$.fn.$$clear=function($){$$.clear($,this)},$.fn.$$fresh=function($){return $$.fresh($,this)}}(jQuery)</script>
 
 
 
@@ -42,13 +42,14 @@ The next time you call `$$('div')` it will be instantly fetched from the cache.
 
 ###Advanced usage
  - `$$('div', '#context')` Find within a context
- - `$$('#context').$$find('div')` Find within a context (alternative syntax)
  - `$$.clear('div', '#context')` Invalidates query on the context
- - `$$.clear(null, '#context')` Invalidates all queries on the context
+ - `$$.clear('#context')` Invalidates the cache, and all queries on the context
  - `$$.clear()` Invalidates all of the cache
  - `$$.fresh('div', '#context')` Shortcut for `$$.clear('div', '#context')` `$$('div', '#context')`
+ - OOP syntax `$$('p').$$find('a')` `$$('p').$$clear('a')` `$$('p').$$fresh('a')`
 
-
+###Tips
+ - Spacing matters `$$('div p')` != `$$('div   p')`
 
 
 

@@ -26,7 +26,7 @@ $(function() {
     $$.clear('#testContext div')
     deepEqual($$('#testContext div').length, 1, 'After clearing the cache, we should have found the new div.')
     deepEqual($$('div', '#testContext').length, 0, 'After clearing the cache, we should not have found the new div for context.')
-    $$.clear(null, '#testContext')
+    $$('#testContext').$$clear()
     deepEqual($$('div', '#testContext').length, 1, 'After clearing the context cache, we should have found the new div for context.')
     deepEqual($$('#testContext').$$find('div').length, 1, 'After clearing the cache, we should have found the new div.')
 

@@ -40,13 +40,9 @@
       if(tmp=context.selector) context = tmp
 
       if(selector) {
-        tmp = cacheByContext[context]
-        if(tmp) {
-          tmp[selector] = undefined
-        }
-      } else {
-        cacheByContext[context] = undefined
+        if(tmp = cacheByContext[context]) tmp[selector] = undefined
       }
+      cacheByContext[context] = undefined
     } else {
       if(selector) {
         cache[selector] = undefined
@@ -65,5 +61,11 @@
 
   $.fn.$$find = function(selector) {
     return $$(selector, this)
+  }
+  $.fn.$$clear = function(selector) {
+    $$.clear(selector, this)
+  }
+  $.fn.$$fresh = function(selector) {
+    return $$.fresh(selector, this)
   }
 })(jQuery)
