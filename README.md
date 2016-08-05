@@ -48,8 +48,6 @@ The next time you call `$$('div')` it will be instantly fetched from the cache.
  - `$$.fresh('div', '#context')` Shortcut for `$$.clear('div', '#context')` `$$('div', '#context')`
  - OOP syntax `$$('p').$$find('a')` `$$('p').$$clear('a')` `$$('p').$$fresh('a')`
 
-###Tips
- - Spacing matters `$$('div p')` != `$$('div   p')`
 
 
 
