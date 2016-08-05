@@ -7,24 +7,26 @@
   // '#a': $('#a')
   var cache = {}
 
-  // $element: (a cache object for the element)
+  // '#context': (a cache object for the element)
   var cacheByContext = {}
 
   // Here for performance/minification
-  var tmp
+  var tmp, tmp2
 
   $$ = function(selector, context) {
     if(context) {
-      var $context = $$(context)
-      var contextCache = cacheByContext[$context]
-      if(contextCache === undefined) {
-        contextCache = cacheByContext[$context] = {}
+      if(tmp=context.selector) context = tmp
+
+      // tmp2 is contextCache
+      tmp2 = cacheByContext[context]
+      if(tmp2 === undefined) {
+        tmp2 = cacheByContext[context] = {}
       }
 
-      tmp = contextCache[selector]
+      tmp = tmp2[selector]
       if(tmp !== undefined) return tmp
 
-      return contextCache[selector] = $(selector, $context)
+      return tmp2[selector] = $(selector, $$(context))
     }
 
     tmp = cache[selector]
@@ -35,17 +37,20 @@
 
   $$.clear = function(selector, context) {
     if(context) {
+      if(tmp=context.selector) context = tmp
+
       if(selector) {
-        tmp = cacheByContext[$$(context)]
+        tmp = cacheByContext[context]
         if(tmp) {
           tmp[selector] = undefined
         }
       } else {
-        cacheByContext[$$(context)] = undefined
+        cacheByContext[context] = undefined
       }
     } else {
       if(selector) {
         cache[selector] = undefined
+        cacheByContext[selector] = undefined
       } else {
         cache = {}
         cacheByContext = {}

@@ -12,7 +12,7 @@ Cache your selectors, without messy code.
 This library is so tiny, just copy paste its whole source after your copy of jQuery (its faster than the browser downloading another file).
 
     <!-- $$ https://github.com/farzher/jQuery-Selector-Cache -->
-    <script>!function($,n){var r,t={},u={};$$=function(f,e){if(e){var i=$$(e),c=u[i];return c===n&&(c=u[i]={}),r=c[f],r!==n?r:c[f]=$(f,i)}return r=t[f],r!==n?r:t[f]=$(f)},$$.clear=function($,f){f?$?(r=u[$$(f)],r&&(r[$]=n)):u[$$(f)]=n:$?t[$]=n:(t={},u={})},$$.fresh=function($,n){return $$.clear($,n),$$($,n)},$.fn.$$find=function($){return $$($,this)}}(jQuery)</script>
+    <script>!function($,n){var r,e,t={},c={};$$=function(u,f){return f?((r=f.selector)&&(f=r),e=c[f],e===n&&(e=c[f]={}),r=e[u],r!==n?r:e[u]=$(u,$$(f))):(r=t[u],r!==n?r:t[u]=$(u))},$$.clear=function($,e){e?((r=e.selector)&&(e=r),$?(r=c[e],r&&(r[$]=n)):c[e]=n):$?(t[$]=n,c[$]=n):(t={},c={})},$$.fresh=function($,n){return $$.clear($,n),$$($,n)},$.fn.$$find=function($){return $$($,this)}}(jQuery)</script>
 
 
 

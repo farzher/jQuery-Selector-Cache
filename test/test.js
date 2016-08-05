@@ -16,6 +16,8 @@ $(function() {
     deepEqual($('#testContext').$$find('div').length, 0, 'Make sure this weird stuff uses the cache')
     deepEqual($$('div', $$('#testContext')).length, 0, 'Make sure this weird stuff uses the cache')
     deepEqual($$('#testContext').find('div').length, 1, 'non-cache should find it')
+
+    deepEqual($$('body').$$find('#testContext').length, 1, 'More than 1 context should work [object Object] and $("div")!=$("div") bugs')
   })
 
   test('clear', function() {
@@ -27,6 +29,16 @@ $(function() {
     $$.clear(null, '#testContext')
     deepEqual($$('div', '#testContext').length, 1, 'After clearing the context cache, we should have found the new div for context.')
     deepEqual($$('#testContext').$$find('div').length, 1, 'After clearing the cache, we should have found the new div.')
+
+    $$('#testContext').append('<div id="tmp"><p></p></div>')
+    deepEqual($$('#testContext p').length, 1)
+    deepEqual($$('p', '#testContext').length, 1)
+    $$('#tmp').append('<p></p>')
+    $$.clear('#testContext')
+    deepEqual($$('#testContext p').length, 1, 'wasn\'t cleared')
+    deepEqual($$('p', '#testContext').length, 2)
+    deepEqual($$('#testContext').$$find('p').length, 2)
+    $$('#testContext #tmp').remove()
   })
 
   test('fresh', function() {
