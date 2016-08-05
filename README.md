@@ -24,9 +24,11 @@ This library is so tiny, just copy paste its whole source after your copy of jQu
 ##Usage
 
 ```js
-  $('div') // Instead of this
+  // Instead of
+  $('div')
 
-  $$('div') // Use this
+  // Use
+  $$('div')
 ```
 
 The next time you call `$$('div')` it will be instantly fetched from the cache.
