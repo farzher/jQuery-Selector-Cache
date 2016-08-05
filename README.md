@@ -11,8 +11,10 @@ Cache your selectors, without messy code.
 
 This library is so tiny, just copy paste its whole source after your copy of jQuery (its faster than the browser downloading another file).
 
-    <!-- $$ https://github.com/farzher/jQuery-Selector-Cache -->
-    <script>!function($,n){var r,e,t={},f={};$$=function(c,u){return u?((r=u.selector)&&(u=r),e=f[u],e===n&&(e=f[u]={}),r=e[c],r!==n?r:e[c]=$(c,$$(u))):(r=t[c],r!==n?r:t[c]=$(c))},$$.clear=function($,e){e?((r=e.selector)&&(e=r),$&&(r=f[e])&&(r[$]=n),f[e]=n):$?(t[$]=n,f[$]=n):(t={},f={})},$$.fresh=function($,n){return $$.clear($,n),$$($,n)},$.fn.$$find=function($){return $$($,this)},$.fn.$$clear=function($){$$.clear($,this)},$.fn.$$fresh=function($){return $$.fresh($,this)}}(jQuery)</script>
+```html
+  <!-- $$ https://github.com/farzher/jQuery-Selector-Cache -->
+  <script>!function($,n){var r,e,t={},f={};$$=function(c,u){return u?((r=u.selector)&&(u=r),e=f[u],e===n&&(e=f[u]={}),r=e[c],r!==n?r:e[c]=$(c,$$(u))):(r=t[c],r!==n?r:t[c]=$(c))},$$.clear=function($,e){e?((r=e.selector)&&(e=r),$&&(r=f[e])&&(r[$]=n),f[e]=n):$?(t[$]=n,f[$]=n):(t={},f={})},$$.fresh=function($,n){return $$.clear($,n),$$($,n)},$.fn.$$find=function($){return $$($,this)},$.fn.$$clear=function($){$$.clear($,this)},$.fn.$$fresh=function($){return $$.fresh($,this)}}(jQuery)</script>
+```
 
 
 
@@ -21,11 +23,11 @@ This library is so tiny, just copy paste its whole source after your copy of jQu
 
 ##Usage
 
-    // Instead of
-    $('div')
+```js
+  $('div') // Instead of this
 
-    // Use
-    $$('div')
+  $$('div') // Use this
+```
 
 The next time you call `$$('div')` it will be instantly fetched from the cache.
 
@@ -34,7 +36,31 @@ The next time you call `$$('div')` it will be instantly fetched from the cache.
 
 
 
-##Full Documentation (it's not much)
+
+##Caching? Why should I care
+
+jQuery itself does no caching. The DOM is slow. You shouldn't look for something that you've found before. Using this code might give you free performance.
+
+```js
+  $('.thing') // Slow
+  $('.thing') // Just as slow
+
+  $$('.thing') // Slow
+  $$('.thing') // Instant
+```
+
+
+
+##Benchmarks http://jsperf.com/selector-cache/4
+
+Over 100% faster than jQuery with no cache.
+
+
+
+
+
+
+##Documentation
 
  - `$$('div')` The next time you call `$$('div')` it will be fetched from the cache.
  - `$$.clear('div')` Invalidates the cache. The next time you call `$$('div')` It will return fresh results.
@@ -48,20 +74,6 @@ The next time you call `$$('div')` it will be instantly fetched from the cache.
  - `$$.fresh('div', '#context')` Shortcut for `$$.clear('div', '#context')` `$$('div', '#context')`
  - OOP syntax `$$('p').$$find('a')` `$$('p').$$clear('a')` `$$('p').$$fresh('a')`
 
-
-
-
-##Caching? Why should I care
-
-jQuery itself does no caching. The DOM is slow. You shouldn't look for something that you've found before. Using this code might give you free performance.
-
-
-
-
-
-##Benchmarks http://jsperf.com/selector-cache/4
-
-Over 100% faster than jQuery with no cache.
 
 
 
